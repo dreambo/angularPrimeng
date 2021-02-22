@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './model/product';
-import { ProductService } from './service/productservice';
+import { Product } from '../model/product';
+import { ProductService } from '../service/productservice';
 import { trigger,state,style,transition,animate } from '@angular/animations';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-root-old',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css'],
   animations: [
       trigger('rowExpansionTrigger', [
           state('void', style({
@@ -22,7 +22,7 @@ import { LazyLoadEvent } from 'primeng/api';
       ])
   ]
 })
-export class AppComponent implements OnInit {
+export class ProductComponent implements OnInit {
     title = 'rien';
     cols: any[] = [];
     details: any[] = [];

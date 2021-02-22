@@ -1,76 +1,19 @@
-<p-table #dt [columns]="cols" [totalRecords]="totalRecords"
-    [value]="virtualProducts" [paginator]="true" [rows]="rowsPerPage" dataKey="name"
-    [lazy]="true" (onLazyLoad)="loadProductLazy($event)" [loading]="loading">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <ng-template pTemplate="caption">
-        <div style="text-align: left">        
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="20" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-        </div>
-    </ng-template>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/product']" routerLinkActive="router-link-active">Product<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/customer']">Customer<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th style="width: 3rem"></th>
-            <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
-                <th *ngSwitchCase="'code'">{{ col.header }}</th>
-                <th *ngSwitchDefault [pSortableColumn]="col.field">{{ col.header }}<p-sortIcon [field]="col.field"></p-sortIcon></th>
-            </ng-container>
-        </tr>
-    </ng-template>
-
-    <ng-template pTemplate="body" let-product let-columns="columns" let-expanded="expanded">
-        <tr>
-            <td>
-                <p-button [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain"
-                    [icon]="'pi pi-chevron-' + (expanded ? 'down' : 'right')">
-                </p-button>
-            </td>
-            <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
-                <td *ngSwitchCase="'price'">{{ product[col.field] | currency: 'EUR' }}</td>
-                <td *ngSwitchCase="'inventoryStatus'"><span [class]="'product-badge status-' + product[col.field].toLowerCase()">{{ product[col.field] }}</span></td>
-                <td *ngSwitchCase="'rating'"><p-rating [ngModel]="product.rating" [readonly]="false" [cancel]="false"></p-rating></td>
-                <td *ngSwitchDefault>{{ product[col.field] }}</td>
-            </ng-container>
-        </tr>
-    </ng-template>
-
-    <ng-template pTemplate="loadingbody" let-columns="columns">
-        <tr style="height:34px">
-            <td *ngFor="let col of columns">
-                <div class="loading-text"></div>
-            </td>
-        </tr>
-    </ng-template>
-
-    <ng-template pTemplate="rowexpansion" let-product>
-        <tr>
-            <td colspan="7">
-                <div class="p-p-3">
-                    <p-table [value]="product.orders" [columns]="details" dataKey="id">
-                        <ng-template pTemplate="header" let-columns>
-                            <tr>
-                                <th *ngFor="let col of columns" [pSortableColumn]="col.field">{{ col.header }}<p-sortIcon [field]="col.field"></p-sortIcon></th>
-                                <th style="width: 4rem"></th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-order let-columns="columns">
-                            <tr>
-                                <ng-container *ngFor="let col of columns" [ngSwitch]="col.field">
-                                    <td *ngSwitchCase="'amount'">{{ order[col.field] | currency: 'USD' }}</td>
-                                    <td *ngSwitchCase="'status'"><span [class]="'order-badge order-' + order[col.field].toLowerCase()">{{order[col.field]}}</span></td>
-                                    <td *ngSwitchDefault>{{ order[col.field] }}</td>
-                                </ng-container>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="6">There are no order for this product yet.</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+<router-outlet></router-outlet>

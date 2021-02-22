@@ -22,6 +22,7 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import { CustomerComponent } from './customer/customer.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -42,13 +43,13 @@ import { CustomerComponent } from './customer/customer.component';
     FormsModule,
     RatingModule,
     RouterModule.forRoot([
-      {path:'', component: CustomerComponent}
-      // {path:'', component: AppComponent}
+      {path:'', component: AppComponent},
+      {path:'customer', component: CustomerComponent},
+      {path:'product', component: ProductComponent}
 		])
   ],
-  declarations: [ AppComponent, CustomerComponent ],
-  // bootstrap:    [ AppComponent ],
-  bootstrap:    [ CustomerComponent ],
+  declarations: [ AppComponent, CustomerComponent, ProductComponent ],
+  bootstrap:    [ AppComponent ],
   providers: [ProductService, CustomerService]
 })
 
