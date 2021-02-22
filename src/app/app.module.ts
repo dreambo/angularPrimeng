@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 
 import { AppComponent }   from './app.component';
 import { ProductService } from './service/productservice';
+import { CustomerService } from './service/customerservice';
 
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
@@ -20,6 +21,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   imports: [
@@ -40,13 +42,14 @@ import {RatingModule} from 'primeng/rating';
     FormsModule,
     RatingModule,
     RouterModule.forRoot([
-      {path:'',component: AppComponent}
-
+      {path:'', component: CustomerComponent}
+      // {path:'', component: AppComponent}
 		])
   ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ],
-  providers: [ProductService]
+  declarations: [ AppComponent, CustomerComponent ],
+  // bootstrap:    [ AppComponent ],
+  bootstrap:    [ CustomerComponent ],
+  providers: [ProductService, CustomerService]
 })
 
 export class AppModule { }

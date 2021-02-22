@@ -1,4 +1,4 @@
-<p-table #dt [columns]="cols" [totalRecords]="totalRecords" *ngIf="virtualProducts?.length > 0"
+<p-table #dt [columns]="cols" [totalRecords]="totalRecords"
     [value]="virtualProducts" [paginator]="true" [rows]="rowsPerPage" dataKey="name"
     [lazy]="true" (onLazyLoad)="loadProductLazy($event)" [loading]="loading">
 
