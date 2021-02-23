@@ -4,8 +4,8 @@ import { CustomerService } from '../service/customerservice';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './customer.component.html'
+    templateUrl: './customer.component.html',
+    styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent implements OnInit {
 
