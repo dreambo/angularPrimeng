@@ -4,15 +4,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
-import { ProduitListComponent } from './produit-list.component';
+import { ProductMatComponent } from './product-mat.component';
 
-describe('ProduitListComponent', () => {
-  let component: ProduitListComponent;
-  let fixture: ComponentFixture<ProduitListComponent>;
+describe('ProductMatComponent', () => {
+  let component: ProductMatComponent;
+  let fixture: ComponentFixture<ProductMatComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProduitListComponent ],
+      declarations: [ ProductMatComponent ],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,
@@ -23,7 +23,7 @@ describe('ProduitListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProduitListComponent);
+    fixture = TestBed.createComponent(ProductMatComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

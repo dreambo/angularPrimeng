@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/product';
-import { ProductService } from '../service/productservice';
+import { Product } from '../../model/product';
+import { ProductService } from '../../service/productservice';
 import { trigger,state,style,transition,animate } from '@angular/animations';
 import { LazyLoadEvent } from 'primeng/api';
 
