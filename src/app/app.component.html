@@ -4,20 +4,38 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu" [overlapTrigger]="false">
-        <a [routerLink]="['/product']" routerLinkActive="router-link-active">
-            <button mat-menu-item><mat-icon>home</mat-icon><span>Product Primeng</span></button>
-        </a>
-        <a [routerLink]="['/customer']" routerLinkActive="router-link-active">
-            <button mat-menu-item><mat-icon>people_outline</mat-icon><span>Customer Primeng</span></button>
-        </a>
-        <button mat-menu-item [routerLink]="['/table']" routerLinkActive="router-link-active">
-          <mat-icon>videocam</mat-icon><span>Product Material</span></button>
+
+        <button mat-menu-item [routerLink]="['/product']" routerLinkActive="router-link-active">
+          <mat-icon>android</mat-icon>
+          <span>Product Primeng</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/product-mat']" routerLinkActive="router-link-active">
+          <mat-icon>card_giftcard</mat-icon>
+          <span>Product Material</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/customer']" routerLinkActive="router-link-active">
+            <mat-icon>assignment_ind</mat-icon>
+            <span>Customer Primeng</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="['/customer-mat']" routerLinkActive="router-link-active">
+          <mat-icon>group_work</mat-icon>
+          <span>Customer Material</span>
+        </button>
+
         <button mat-menu-item>
           <mat-icon>exit_to_app</mat-icon>
           <span>Logout</span>
         </button>
+
       </mat-menu>
     </span>
-    <span class="fill-remaining-space">Application Title</span>
-</mat-toolbar>
+
+    <button mat-icon-button [routerLink]="['/home']" routerLinkActive="router-link-active">
+      <mat-icon>home</mat-icon>
+    </button>
+
+  </mat-toolbar>
 <router-outlet></router-outlet>

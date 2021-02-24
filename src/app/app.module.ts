@@ -27,6 +27,7 @@ import {RatingModule} from 'primeng/rating';
 import { MaterialModule } from './app-material.module';
 import { RoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { CustomerMatComponent } from './customer/material/customer-mat.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   ],
   declarations: [
     AppComponent, HomeComponent, ProductComponent,
-    CustomerComponent, ProductMatComponent
+    CustomerComponent, ProductMatComponent, CustomerMatComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ ProductService, CustomerService ]
