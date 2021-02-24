@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CustomerComponent } from './customer/customer.component';
-import { ProductComponent } from './product/product.component';
+import { CustomerComponent } from './customer/primeng/customer.component';
+import { ProductComponent } from './product/primeng/product.component';
 import { HomeComponent } from './home/home.component';
-import { ProduitListComponent } from './produit-list/produit-list.component';
+import { ProductMatComponent } from './product/material/product-mat.component';
 
 const routes: Routes = [
   {path: 'home',     component: HomeComponent},
-  {path: 'table',    component: ProduitListComponent},
+  {path: 'table',    component: ProductMatComponent},
   {path: 'customer', component: CustomerComponent},
   {path: 'product',  component: ProductComponent}
 ];

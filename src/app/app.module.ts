@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent }   from './app.component';
 import { ProductService } from './service/productservice';
 import { CustomerService } from './service/customerservice';
-import { CustomerComponent } from './customer/customer.component';
-import { ProductComponent } from './product/product.component';
+import { CustomerComponent } from './customer/primeng/customer.component';
+import { ProductComponent } from './product/primeng/product.component';
 import { HomeComponent } from './home/home.component';
-import { ProduitListComponent } from './produit-list/produit-list.component';
+import { ProductMatComponent } from './product/material/product-mat.component';
 
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
@@ -52,7 +52,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   ],
   declarations: [
     AppComponent, HomeComponent, ProductComponent,
-    CustomerComponent, ProduitListComponent
+    CustomerComponent, ProductMatComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ ProductService, CustomerService ]

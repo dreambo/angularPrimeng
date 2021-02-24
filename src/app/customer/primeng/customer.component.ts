@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer, Representative } from '../model/customer';
-import { CustomerService } from '../service/customerservice';
+import { Customer, Representative } from '../../model/customer';
+import { CustomerService } from '../../service/customerservice';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
