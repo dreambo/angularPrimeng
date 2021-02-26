@@ -1,1 +1,58 @@
-<p>customer-mat works!</p>
+
+<div class="mat-elevation-z8">
+    <mat-form-field>
+        <input matInput placeholder="Filter" (keyup)="filter($event.target.value)">
+    </mat-form-field>
+
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+  <!--
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+        <td mat-cell *matCellDef="let row">{{row.code}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let row">{{row.price}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+        <td mat-cell *matCellDef="let row">{{row.category}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="rating">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
+        <td mat-cell *matCellDef="let row">{{row.rating}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="inventoryStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>inventoryStatus</th>
+        <td mat-cell *matCellDef="let row">{{row.inventoryStatus}}</td>
+      </ng-container>
+  -->
+  <!--
+      <mat-text-column *ngFor="let col of displayedColumns" name="{{ col }}"></mat-text-column>
+  -->
+      <ng-container *ngFor="let col of displayedColumns" matColumnDef="{{ col }}">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col }}</th>
+        <td mat-cell *matCellDef="let row">{{ row[col] }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #paginator
+        [length]="dataSource?.data.length"
+        [pageIndex]="0"
+        [pageSize]="10"
+        [pageSizeOptions]="[10, 25]">
+    </mat-paginator>
+  </div>
+  
