@@ -31,18 +31,19 @@ export class CustomerMatComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
 
-    this.customerService.getCustomersSmall1().subscribe(res => {
-      this.data = res.data;
-      console.log('this.data=', this.data);
-      //this.dataSource = new MatTableDataSource(this.data);
-      this.displayedColumns = res.data[0] && Object.keys(this.data[0]);
-    });
-
     this.customerService.getCustomers1().subscribe(res => {
       if (res && res.data) {
         console.log('data:', res.data);
         this.dataSource = new MatTableDataSource(res.data);
         this.displayedColumns = res.data[0] && Object.keys(res.data[0]);
+
+        // filtering nested prediacte
+        this.dataSource.filterPredicate = (item, filter: string) => {
+          return (item && item.name ? item.name : item).toLocaleLowerCase().includes(filter);
+        }
+
+        // sorting nested
+        this.dataSource.sortingDataAccessor = (item, property) => item[property].name ? item[property].name : item[property];
       };
     });
   }
