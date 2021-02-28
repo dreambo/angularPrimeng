@@ -38,12 +38,18 @@ export class CustomerMatComponent implements AfterViewInit, OnInit {
         this.displayedColumns = res.data[0] && Object.keys(res.data[0]);
 
         // filtering nested prediacte
-        this.dataSource.filterPredicate = (item, filter: string) => {
-          return (item && item.name ? item.name : item).toLocaleLowerCase().includes(filter);
+        this.dataSource.filterPredicate = (item: Customer, filter: string) => {
+          const accumulator = (currentTerm, key) => {
+            return currentTerm + (item[key].name ? item[key].name : item[key]);
+          };
+          const dataStr = Object.keys(item).reduce(accumulator, '').toLowerCase();
+          // Transform the filter by converting it to lowercase and removing whitespace.
+          const transformedFilter = filter.trim().toLowerCase();
+          return dataStr.indexOf(transformedFilter) !== -1;
         }
 
         // sorting nested
-        this.dataSource.sortingDataAccessor = (item, property) => item[property].name ? item[property].name : item[property];
+        this.dataSource.sortingDataAccessor = (item, key) => item[key].name ? item[key].name : item[key];
       };
     });
   }
@@ -55,7 +61,6 @@ export class CustomerMatComponent implements AfterViewInit, OnInit {
   }
 
   filter(key: string) {
-    console.log(key);
     this.dataSource.filter = key && key.toLowerCase();
   }
 }
